@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | StarNet</title>
+
+    <!-- External Assets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Favicon Configuration to show logo in browser tab -->
+<link rel="icon" type="image/png" href="./star.png"> 
+    <style>
+        /* Smooth Scrolling Configuration */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+           
+            overflow-x: hidden;
+        }
+
+        /* 1. Custom Fixed Navbar with Deep Navy Theme */
+        .custom-navbar {
+            background-color: #fcfdfe !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 12px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 2. Responsive Logo Tuning */
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 300px;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+
+        .navbar-brand span {
+            font-size: 22px;
+            font-weight: 700;
+            color: #001f3f;
+            margin-left: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 3. Navigation Links Structure */
+        .navbar-nav .nav-item {
+            margin-left: 5px;
+        }
+
+        .nav-link {
+            color: #334155;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px !important;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        /* Gold Hover Accent */
+        .nav-link:hover {
+            color: white !important;
+            background-color: #001f3f;
+        }
+
+        /* Contact Action Button Highlight */
+        .nav-link.fw-bold {
+            color: #001f3f !important;
+            background-color: #ffd700;
+            margin-left: 10px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-link.fw-bold:hover {
+            background-color: #ffea00;
+            color: #001f3f !important;
+            transform: translateY(-1px);
+        }
+
+        /* 4. Utilities Animations (Hover Scale & Floating View) */
+        .card-img-top {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+
+        /* Trust Card Interactive Styling Dynamics */
+        .custom-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(0, 31, 63, 0.08) !important;
+        }
+
+        .custom-stat-node {
+            
+            border-radius: 22px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-stat-node:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-icon-box {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.7), 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-stat-node:hover .stat-icon-box {
+            transform: scale(1.08) rotate(4deg);
+        }
+
+        .stat-icon {
+            font-size: 1.9rem;
+        }
+
+        .stat-number {
+            font-size: 2.7rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .stat-title {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: #1e293b;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-stat-node:hover .stat-title {
+            background: #0f172a;
+            color: white;
+        }
+
+        .banner-section {
+            background-image: url('banner5.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Dark overlay */
+        .banner-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Content above overlay */
+        .banner-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .custom-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(237, 202, 2, 0.4) !important;
+        }
+
+        /* Grid Plans Container Layout */
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .plan {
+            background: linear-gradient(135deg, #001f3f, #003566);
+            color: white;
+            padding: 30px;
+            border: 2px solid rgba(13, 162, 248, 0.1);
+            border-radius: 16px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Large Card */
+        .big {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: linear-gradient(135deg, #0077ff, #00b4ff);
+        }
+
+        /* Wide Card */
+        .wide {
+            grid-column: span 2;
+        }
+
+        .plan h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .plan p {
+            color: #dbe7f3;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Responsive Media Adjustments */
+        @media(max-width: 768px) {
+            .banner-section {
+                min-height: 65vh;
+            }
+
+            .banner-title {
+                font-size: 2rem !important;
+            }
+
+            .banner-subtext {
+                font-size: 1rem;
+            }
+        }
+
+        @media(max-width: 992px) {
+            .plans-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .big {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .wide {
+                grid-column: span 2;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .plans-container {
+                grid-template-columns: 1fr;
+            }
+
+            .big,
+            .wide {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="./logo1.jpeg" alt="StarNet Logo" class="logo-img">
+                   
+                </a>
+
+                <button class="navbar-toggler bg-light border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="plans.html">Plans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FQA.html">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-center" href="contact.html" >
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Global Shared Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true"
+        style="z-index: 1055;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-dark border-0 shadow"
+                style="border-radius: 20px; background-color: #ffffff;">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body text-center p-4">
+                    <div class="mb-4">
+                        <i class="bi bi-router-fill text-primary"
+                            style="font-size: 4.5rem; filter: drop-shadow(0px 8px 12px rgba(0, 31, 63, 0.15));"></i>
+                    </div>
+
+                    <h3 class="fw-bold mb-2" id="contactModalLabel" style="color: #001f3f;">StarNet Broadband</h3>
+                    <p class="text-muted mb-4">Chat with our support expert to verify technical feasibility and unlock
+                        exclusive high-speed plans in your local area.</p>
+
+                    <div class="bg-light rounded-4 p-3 mb-4" style="border: 1px solid #e2e8f0; border-radius: 12px;">
+                        <div class="d-flex align-items-center justify-content-center mb-2">
+                            <i class="bi bi-telephone-fill text-primary me-2"></i>
+                            <span class="fw-bold text-dark" style="font-size: 1.1rem;">+91 99941-99855</span>
+                        </div>
+                        <small class="text-uppercase tracking-wider text-muted font-monospace"
+                            style="font-size: 0.7rem; display: block;">Technical Desk Available 8 AM - 10 PM</small>
+                    </div>
+
+                    <a href="https://wa.me/919677655550?text=Hi%20StarNet,%20I%20am%20interested%20in%20getting%20a%20new%20high-speed%20internet%20connection.%20Please%20verify%20availability%20for%20my%20location."
+                        target="_blank"
+                        class="btn btn-success btn-lg w-100 rounded-pill py-3 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2"
+                        style="background-color: #25D366; border: none; font-size: 1rem;">
+                        <i class="bi bi-whatsapp"></i> Inquiry via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Banner Section -->
+  <section class="banner-section container-fluid d-flex align-items-center" data-aos="fade-up">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- Left Content -->
+            <div class="col-lg-6 col-md-12 text-lg-start text-center pt-4 pt-md-0">
+
+                <h1 class="fw-bold mb-3 banner-title"
+                    style="text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+                           line-height: 1.2;
+                           font-size: calc(1.8rem + 1.5vw);
+                           color: #001f3f;">
+
+                    Experience Blazing Fast <br>
+
+                    <span style="color: #edca02;">
+                        StarNet Internet
+                    </span>
+                </h1>
+
+                <p class="lead mb-4 banner-subtext"
+                    style="max-width: 540px;
+                           color: #000;
+                           text-shadow: 1px 1px 3px rgba(255,255,255,0.5);">
+
+                    Get unlimited high-speed fiber broadband connection with
+                    99.9% uptime, buffer-free streaming, and smart custom pricing plans.
+                </p>
+
+                <!-- Buttons -->
+                <div class="d-flex flex-wrap gap-3 justify-content-lg-start justify-content-center">
+
+                    <!-- Connection Button -->
+                    <a href="#"
+                       class="btn btn-warning btn-lg fw-bold shadow rounded-pill px-5 py-3 custom-btn"
+                       data-bs-toggle="modal"
+                       data-bs-target="#contactModal">
+
+                        Get Connection Now
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+
+                    <!-- Client Portal Button -->
+                    
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-lg-6 d-none d-lg-block">
+                <!-- Optional Image Here -->
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Why Choose Us Features Section -->
+    <section id="why-choose-us" class="py-5" style="background-color: #ffffff;" data-aos="fade-right">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h3 class="text-primary text-uppercase fw-bold" style="letter-spacing: 2px;">Why StarNet</h3>
+                <h2 class="fw-bold mt-2" style="color: #001f3f; font-size: 2.0rem;">Experience The Best Connectivity
+                </h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">We deliver more than just a standard internet
+                    line. Discover the technical features that make us the premium choice in your local area.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card border-0 h-100 shadow-sm custom-card"
+                        style="border-radius: 20px; overflow: hidden;">
+                        <div class="img-container p-3 text-center" style="background: #f8fafc;">
+                            <img src="uptime.png" class="card-img-top product-img" alt="99.9% Network Uptime"
+                                style="max-height: 200px; object-fit: contain; border-radius: 12px;">
+                        </div>
+                        <div class="card-body text-center d-flex flex-column p-4">
+                            <h5 class="fw-bold mb-2" style="color: #001f3f;">99.9% Network Uptime</h5>
+                            <p class="text-muted mb-4" style="font-size: 0.9rem; line-height: 1.6;">Engineered with
+                                dual-ring backup routing infrastructure to keep your business workflows and video stream
+                                pipelines running smoothly.</p>
+                            <div class="mt-auto">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal"
+                                    class="btn btn-outline-primary rounded-pill px-4 w-100">Get Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card border-0 h-100 shadow-sm custom-card"
+                        style="border-radius: 20px; overflow: hidden;">
+                        <div class="img-container p-3 text-center" style="background: #f8fafc;">
+                            <img src="Free Dual-Band.jfif" class="card-img-top product-img" alt="Free Router Setup"
+                                style="max-height: 200px; width: 100%; object-fit: contain; border-radius: 12px;">
+                        </div>
+                        <div class="card-body text-center d-flex flex-column p-4">
+                            <h5 class="fw-bold mb-2" style="color: #001f3f;">Free Dual-Band Setup</h5>
+                            <p class="text-muted mb-4" style="font-size: 0.9rem; line-height: 1.6;">Zero hidden
+                                deployment costs. Every active high-speed subscription profile ships packed with a
+                                modern high-range dual-band smart router setup.</p>
+                            <div class="mt-auto">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal"
+                                    class="btn btn-outline-primary rounded-pill px-4 w-100">Get Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card border-0 h-100 shadow-sm custom-card"
+                        style="border-radius: 20px; overflow: hidden;">
+                        <div class="img-container p-3 text-center" style="background: #f8fafc;">
+                            <img src="support.avif" class="card-img-top product-img" alt="24/7 Dedicated Support"
+                                style="max-height: 200px; object-fit: contain; border-radius: 12px;">
+                        </div>
+                        <div class="card-body text-center d-flex flex-column p-4">
+                            <h5 class="fw-bold mb-2" style="color: #001f3f;">24/7 Dedicated Support</h5>
+                            <p class="text-muted mb-4" style="font-size: 0.9rem; line-height: 1.6;">Skip annoying
+                                automated bots. Talk directly with local, dedicated support desks ready to assist you
+                                right when you need operational fixes.</p>
+                            <div class="mt-auto">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal"
+                                    class="btn btn-outline-primary rounded-pill px-4 w-100">Get Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metric Counter Badges -->
+        <div class="container py-2">
+            <div class="row g-4 text-center">
+                <div class="col-lg-4 col-sm-6 ">
+                    <div class="p-4 custom-stat-node h-100  bg-primary-subtle">
+                        <div class="stat-icon-box mx-auto mb-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-person-lines-fill text-info stat-icon"></i>
+                        </div>
+                        <h2 class="stat-number text-info">850+</h2>
+                        <h6 class="stat-title">Active Users</h6>
+                    </div>
+                </div>
+
+              
+                <div class="col-lg-4 col-sm-6">
+                    <div class="p-4 custom-stat-node h-100 bg-success-subtle">
+                        <div class="stat-icon-box mx-auto mb-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-chat-heart-fill text-success stat-icon"></i>
+                        </div>
+                        <h2 class="stat-number text-success">98%</h2>
+                        <h6 class="stat-title">Client Satisfaction</h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6">
+                    <div class="p-4 custom-stat-node h-100 bg-danger-subtle ">
+                        <div class="stat-icon-box mx-auto mb-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-stars text-danger stat-icon"></i>
+                        </div>
+                        <h2 class="stat-number text-danger">500+</h2>
+                        <h6 class="stat-title">Positive Reviews</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans Matrix Section -->
+    <section data-aos="fade-left" class="py-5">
+        <div class="text-center mb-5 container-fluid">
+            <h3 class="text-primary text-uppercase fw-bold" style="letter-spacing: 2px;">Explore Our High-Speed Fiber
+                Plans</h3>
+            <span class="badge bg-warning text-dark mb-2">Most Popular</span>
+            <p class="text-muted mx-auto" style="max-width: 600px;">Enjoy seamless streaming, gaming, and browsing with
+                our ultra-fast fiber internet plans.</p>
+        </div>
+
+        <div class="container">
+            <div class="plans-container">
+                <div class="plan big position-relative">
+
+
+                    <h2 class="fw-bold mb-3">
+                      Entertainment Combo Packages <br>
+                     ( Internet + OTT +  IPTV  Available )
+                    </h2>
+                    
+
+                    <!-- OTT Logos -->
+                    <div class="d-flex gap-3 flex-wrap mb-4">
+
+                        <img src="./netflix.jfif" width="60px" class="ott-logo" style="border-radius: 5px;">
+
+                        <img src="./primevideo.jfif" width="60px" class="ott-logo" style="border-radius: 5px;">
+
+                        <img src="./hotstar.jfif" width="60px" class="ott-logo" style="border-radius: 5px;">
+
+                        <img src="./zee5.jfif" width="60px" class="ott-logo" style="border-radius: 5px;">
+                    </div>
+
+                    <!-- Features -->
+                    <ul class="list-unstyled mb-4">
+
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                            <b>Unlimited Data</b>
+                        </li>
+
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                           <b>800+ TV Channels</b>
+                        </li>
+
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                            <b>Free Installation</b>
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle-fill text-warning me-2"></i>
+                            <b>Free Wifi Router</b>
+                        </li>
+
+                    </ul>
+
+                    <!-- Price -->
+                    <span class="badge bg-light text-dark px-3 py-2">
+                        Starts From ₹399
+                    </span>
+
+                    <!-- Button -->
+                    <div class="mt-4">
+
+                       
+
+                    </div>
+
+                </div>
+              <div class="plan">
+    <h2>30 Mbps</h2>
+    <p>🌐 Everyday Internet</p>
+    <small>🎁 Free Installation*</small>
+</div>
+
+<div class="plan">
+    <h2>100 Mbps</h2>
+    <span class="badge">🔥 Most Popular</span>
+    <p>🚀 Stream, Work & Game Faster</p>
+    <small>🎁 Free Installation + OTT Benefits*</small>
+</div>
+
+<div class="plan wide">
+    <h2>200 Mbps</h2>
+    <span class="badge">⚡ Best Value</span>
+    <p>Ultra Fast Unlimited Internet</p>
+    <small>🎁 Free Installation + Premium OTT Access*</small>
+</div>
+            </div>
+            <style>
+.badge{
+    background:#fed803;
+    color:#000;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+</style>
+
+            <!-- Expand Table Accordion Toggle Button -->
+            <div class="text-center mt-5">
+                <button class="btn btn-warning btn-lg rounded-pill px-5 fw-bold" data-bs-toggle="collapse"
+                    data-bs-target="#entertainmentPlans">
+                    View All Entertainment Plans <i class="bi bi-arrow-down-circle ms-2"></i>
+                </button>
+            </div>
+
+            <!-- Hidden Entertainment Table Data Node -->
+            <div class="collapse mt-4" id="entertainmentPlans">
+                <div class="table-responsive shadow rounded-4 overflow-hidden">
+                    <table class="table table-bordered table-hover align-middle text-center mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Price</th>
+                                <th>Speed</th>
+                                <th>Data</th>
+                                <th>TV Channels</th>
+                                <th>OTT Apps</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>₹499</td>
+                                <td>30 Mbps</td>
+                                <td>Unlimited</td>
+                                <td>800+ Tv Channels</td>
+                                <td>Basic OTT Pack</td>
+                            </tr>
+                            <tr>
+                                <td>₹549</td>
+                                <td>30 Mbps</td>
+                                <td>Unlimited</td>
+                                <td>800+ Tv Channels</td>
+                                <td>Standard OTT Pack</td>
+                            </tr>
+                            <tr>
+                                <td>₹599</td>
+                                <td>100 Mbps</td>
+                                <td>Unlimited</td>
+                                <td>800+ Tv Channels</td>
+                                <td>Premium OTT Pack</td>
+                            </tr>
+                            <tr>
+                                <td>₹649</td>
+                                <td>125 Mbps</td>
+                                <td>Unlimited</td>
+                                <td>800+ Tv Channels</td>
+                                <td>Premium OTT Pack</td>
+                            </tr>
+                            <tr>
+                                <td>₹949</td>
+                                <td>200 Mbps</td>
+                                <td>Unlimited</td>
+                                <td>800+ Tv Channels</td>
+                                <td>Premium OTT + TV Channels</td>
+                            </tr>
+                            <tr>
+                                <td>₹1180</td>
+                                <td>200 Mbps</td>
+                                <td>Unlimited</td>
+                                <td>800+ Tv Channels</td>
+                                <td>Premium OTT + TV Channels</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="py-5 text-white" style="background-color: black;">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="fw-bold mb-3 text-warning">StarNet</h3>
+                    <p class="text-light opacity-75">
+                        Experience ultra-fast fiber broadband with reliable connectivity, seamless streaming, and
+                        affordable plans designed for every home and business.
+                    </p>
+                  
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-light">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-light">About</a></li>
+                        <li class="mb-2"><a href="plans.html" class="text-decoration-none text-light">Plans</a></li>
+                        <li class="mb-2"><a href="FAQ.html" class="text-decoration-none text-light">FAQ</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-decoration-none text-light">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+               <!-- Follow Us -->
+<div class="col-lg-3 col-md-6">
+    <h5 class="fw-bold mb-3 text-warning">Follow Us</h5>
+
+    <a href="https://www.facebook.com/share/1HsUiEZvhR/" target="_blank"
+        class="d-flex align-items-center text-decoration-none text-light mb-3">
+        <i class="bi bi-facebook fs-4 text-primary me-3"></i>
+        <span>Facebook</span>
+    </a>
+
+    <a href="https://www.instagram.com/starnetppy?utm_source=qr&igsh=MTNrdTJqOXBqemQxNQ==" target="_blank"
+        class="d-flex align-items-center text-decoration-none text-light">
+        <i class="bi bi-instagram fs-4 text-danger me-3"></i>
+        <span>Instagram</span>
+    </a>
+     <a href="https://wa.me/919677655550"  class="d-flex align-items-center text-decoration-none text-light">
+        <i class="bi bi-whatsapp fs-4 text-success me-3"></i>
+        <span>WhatsApp</span></a>
+</div>
+
+                <!-- Contact Details -->
+                 <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">Contact Us</h5>
+                    <p class="mb-2 text-light"><i class="bi bi-telephone-fill text-warning me-2"></i> +91 96776-55550, 95666-12343, 98427 31622
+                    </p>
+                    <p class="mb-2 text-light"><i class="bi bi-envelope-fill text-warning me-2"></i> ppystarnet@gmail.com
+                    </p>
+                    <p class="mb-0 text-light"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Jawahar Mainroad, opp. Bus stand, Puliampatti, Tamil Nadu 638459
+                    </p>
+                    <a href="https://wa.me/919677655550" target="_blank"
+                        class="btn btn-warning mt-4 rounded-pill fw-bold px-4">
+                        <i class="bi bi-whatsapp me-2"></i>Chat Now
+                    </a>
+                </div>
+            </div>
+
+            <hr class="border-light opacity-25 my-4">
+            <div class="text-center">
+                <p class="mb-0 text-light opacity-75">© 2026 StarNet Broadband. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Execution Engine Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+             mirror: true
+           
+        });
+    </script>
+</body>
+
+</html>

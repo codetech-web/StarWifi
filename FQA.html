@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | StarNet</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+       <!-- Favicon Configuration to show logo in browser tab -->
+<link rel="icon" type="image/png" href="./star.png">
+    <style>
+        /* Base Reset & Font Family */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* 1. Custom Fixed Navbar with Deep Navy Theme */
+        .custom-navbar {
+            background-color: #fcfdfe !important; /* Perfect Navy Blue */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* 2. Responsive Logo Tuning */
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 300px;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+
+        .navbar-brand span {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-left: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 3. Navigation Links Structure */
+        .navbar-nav .nav-item {
+            margin-left: 5px;
+        }
+      
+
+        .nav-link {
+            color: black;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px !important;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        /* Gold Hover Accent */
+        .nav-link:hover {
+            color: white !important; 
+            background-color:black;
+        }
+
+        /* Contact Action Button Highlight */
+        .nav-link.fw-bold {
+            color: #001f3f !important;
+            background-color: #ffd700;
+            margin-left: 10px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-link.fw-bold:hover {
+            background-color: #ffea00;
+            color: #001f3f !important;
+            transform: translateY(-1px);
+        }
+
+        /* 4. Utilities Animations (Hover Scale & Floating View) */
+        .card-img-top {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+
+    
+    </style>
+</head>
+<body>
+
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo1.jpeg" alt="StarNet Logo" class="logo-img">
+                <span>StarNet</span>
+            </a>
+
+            <button class="navbar-toggler bg-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mobiles.html">Plans</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="accessories.html">FAQ</a>
+                    </li>
+                
+                    <li class="nav-item">
+    <a class="nav-link fw-bold text-center" href="contact.html" >
+        Contact
+    </a>
+</li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true" style="z-index: 9999;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-dark border-0 shadow" style="border-radius: 20px; background-color: #ffffff;">
+            
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body text-center p-4">
+                <div class="mb-4">
+                    <i class="bi bi-router-fill text-primary" style="font-size: 4.5rem; filter: drop-shadow(0px 8px 12px rgba(0, 31, 63, 0.15));"></i>
+                </div>
+
+                <h3 class="fw-bold mb-2" id="contactModalLabel" style="color: #001f3f; font-family: sans-serif;">StarNet Broadband</h3>
+                <p class="text-muted mb-4">Chat with our support expert to verify technical feasibility and unlock exclusive high-speed plans in your local area.</p>
+
+                <div class="bg-light rounded-4 p-3 mb-4" style="border: 1px solid #e2e8f0; border-radius: 12px;">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <i class="bi bi-telephone-fill text-primary me-2"></i>
+                        <span class="fw-bold text-dark" style="font-size: 1.1rem;">+91 99941-99855</span>
+                    </div>
+                    <small class="text-uppercase tracking-wider text-muted font-monospace" style="font-size: 0.7rem; display: block;">Technical Desk Available 8 AM - 10 PM</small>
+                </div>
+
+                <a href="https://wa.me/919677655550?text=Hi%20StarNet,%20I%20am%20interested%20in%20getting%20a%20new%20high-speed%20internet%20connection.%20Please%20verify%20availability%20for%20my%20location."
+                   target="_blank"
+                   class="btn btn-success btn-lg w-100 rounded-pill py-3 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2"
+                   style="background-color: #25D366; border: none; font-size: 1rem;">
+                    <i class="bi bi-whatsapp"></i> Inquiry via WhatsApp
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <!-- Heading -->
+
+        <div class="text-center mb-5">
+
+            <h5 class="text-primary fw-bold text-uppercase">
+                FAQ
+            </h5>
+
+            <h2 class="fw-bold" style="color:#001f3f;">
+                Frequently Asked Questions
+            </h2>
+
+            <p class="text-muted">
+                Find quick answers to common questions about StarNet services.
+            </p>
+
+        </div>
+
+        <!-- Accordion -->
+
+        <div class="accordion shadow-sm" id="faqAccordion">
+
+            <!-- FAQ 1 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq1">
+
+                        How long does installation take?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq1" class="accordion-collapse collapse show"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        Most new internet connections are installed within 24 to 48 hours.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 2 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq2">
+
+                        Do you provide unlimited internet?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq2" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        Yes, all our plans include unlimited high-speed internet access.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 3 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq3">
+
+                        Is router setup included?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq3" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        Yes, we provide complete WiFi router installation support.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 4 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq4">
+
+                        Which areas do you serve?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq4" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        We currently provide services across puliyampatti and nearby locations.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 5 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq5">
+
+                        Do you offer customer support?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq5" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        Yes, our technical support team is available for assistance.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 6 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq6">
+
+                        Can I upgrade my plan later?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq6" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        Yes, you can upgrade your plan anytime based on your needs.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 7 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq7">
+
+                        Is OTT included in plans?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq7" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        Selected premium plans include OTT subscriptions.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 8 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq8">
+
+                        What payment methods are available?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq8" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        We accept UPI, online transfer, and cash payments.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 9 -->
+
+            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq9">
+
+                        Is StarNet good for gaming?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq9" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        Yes, our fiber plans support smooth gaming and streaming.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FAQ 10 -->
+
+            <div class="accordion-item border-0 rounded-4 overflow-hidden">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq10">
+
+                        How can I contact StarNet?
+
+                    </button>
+
+                </h2>
+
+                <div id="faq10" class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body text-muted">
+                        You can contact us through WhatsApp, phone, or email support.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- Footer Section -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

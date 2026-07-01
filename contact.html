@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | StarNet</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+       <!-- Favicon Configuration to show logo in browser tab -->
+<link rel="icon" type="image/png" href="./star.png">
+    <style>
+        /* Base Reset & Font Family */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* 1. Custom Fixed Navbar with Deep Navy Theme */
+        .custom-navbar {
+            background-color: #fcfdfe !important;
+            /* Perfect Navy Blue */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* 2. Responsive Logo Tuning */
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+         .logo-img {
+            height: 80px;
+            width: 300px;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+
+        .navbar-brand span {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-left: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 3. Navigation Links Structure */
+        .navbar-nav .nav-item {
+            margin-left: 5px;
+        }
+
+
+        .nav-link {
+            color: black;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px !important;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        /* Gold Hover Accent */
+        .nav-link:hover {
+            color: white !important;
+            background-color: black;
+        }
+
+        /* Contact Action Button Highlight */
+        .nav-link.fw-bold {
+            color: #001f3f !important;
+            background-color: #ffd700;
+            margin-left: 10px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-link.fw-bold:hover {
+            background-color: #ffea00;
+            color: #001f3f !important;
+            transform: translateY(-1px);
+        }
+
+        /* 4. Utilities Animations (Hover Scale & Floating View) */
+        .card-img-top {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+
+
+
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Left Side Content Container */
+        .contact-info-section {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        /* Quick Action Contact Cards */
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 8px;
+            background: #e2f2fc;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2f1;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card i {
+            font-size: 34px;
+
+            width: 30px;
+            text-align: center;
+        }
+
+        /* Custom Brand Colors for Cards */
+        .card.whatsapp i {
+            color: #25D366;
+        }
+
+        .card.phone i {
+            color: #3498db;
+        }
+
+        .card.email i {
+            color: #e74c3c;
+        }
+
+        .card-details h4 {
+            font-size: 15px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .card-details p {
+            font-size: 16px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        /* Right Side Map Styling */
+        .map-section {
+            width: 100%;
+            min-height: 450px;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive Breakpoint for Mobile & Tablets */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                /* Stack elements vertically */
+            }
+
+            .contact-info-section {
+                padding: 30px 20px;
+            }
+
+            .map-section {
+                height: 350px;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container">
+
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="./logo1.jpeg" alt="StarNet Logo" class="logo-img">
+                    <span>StarNet</span>
+                </a>
+
+                <button class="navbar-toggler bg-light border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="plans.html">Plans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FQA.html">FAQ</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-center" href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+
+    <div class="contact-container mt-5" data-aos="fade-right">
+
+        <!-- Left Side: Shop Contact details -->
+        <div class="contact-info-section">
+            <div>
+                <h2>Contact Our Shop</h2>
+                <p class="subtitle">Feel free to reach out via WhatsApp, call, or email. Or visit us directly using the
+                    map layout.</p>
+
+                <div class="contact-cards ">
+                    <!-- WhatsApp Enquiry (Mobile clicks direct to chat) -->
+                    <a href="https://wa.me/919677655550?text=Hi,%20Can%20 I%20 get%20 more%20 information%20 about%20 this%20 plan?" class="card whatsapp"
+                        target="_blank">
+                        <i class="fab fa-whatsapp"></i> <br>
+                        <div class="card-details">
+                            <center>
+                                <h4>WhatsApp Enquiry</h4>
+                            </center>
+                            <p>Chat with us now</p>
+                        </div>
+                    </a>
+
+                    <!-- Direct Phone Call -->
+                    <a  class="card phone">
+                        <i class="fas fa-phone-alt"></i> <br>
+                        <div class="card-details">
+                            <center>
+                                <h4>Call Us</h4>
+                            </center>
+                            <p>96776-55550</p>
+                            <p>95666-12343</p>
+                            <p> 98427 31622</p>
+                        </div>
+                    </a>
+
+                    <!-- Mail To Address -->
+                    <a href="mailto:ppystarnet@gmail.com" class="card email">
+                        <i class="far fa-envelope"></i> <br>
+                        <div class="card-details">
+                            <center>
+                                <h4>Email Us</h4>
+                            </center> <br>
+                            <p>ppystarnet@gmail.com</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Google Map Embed -->
+        <div class="map-section">
+            <!-- Replace this template src URL with your exact Google Shop Location embed code -->
+
+           <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3911.794807480968!2d77.16328757505026!3d11.34969298883608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDIwJzU4LjkiTiA3N8KwMDknNTcuMSJF!5e0!3m2!1sen!2sin!4v1782041103063!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="py-5 text-white mt-5" style="background-color:black;">
+        <div class="container">
+            <div class="row gy-4">
+
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="fw-bold mb-3 text-warning">StarNet</h3>
+                    <p class="text-light opacity-75">
+                        Experience ultra-fast fiber broadband with reliable connectivity,
+                        seamless streaming, and affordable plans designed for every home and business.
+                    </p>
+
+                    
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="index.html" class="text-decoration-none text-light">Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="about.html" class="text-decoration-none text-light">About</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="mobiles.html" class="text-decoration-none text-light">Plans</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="accessories.html" class="text-decoration-none text-light">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6">
+    <h5 class="fw-bold mb-3 text-warning">Follow Us</h5>
+
+    <a href="https://www.facebook.com/share/1HsUiEZvhR/" target="_blank"
+        class="d-flex align-items-center text-decoration-none text-light mb-3">
+        <i class="bi bi-facebook fs-4 text-primary me-3"></i>
+        <span>Facebook</span>
+    </a>
+
+    <a href="https://www.instagram.com/starnetppy?utm_source=qr&igsh=MTNrdTJqOXBqemQxNQ==" target="_blank"
+        class="d-flex align-items-center text-decoration-none text-light">
+        <i class="bi bi-instagram fs-4 text-danger me-3"></i>
+        <span>Instagram</span>
+    </a>
+     <a href="https://wa.me/919677655550"  class="d-flex align-items-center text-decoration-none text-light">
+        <i class="bi bi-whatsapp fs-4 text-success me-3"></i>
+        <span>WhatsApp</span></a>
+</div>
+
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">Contact Us</h5>
+                    <p class="mb-2 text-light"><i class="bi bi-telephone-fill text-warning me-2"></i> +91 96776-55550, 95666-12343, 98427 31622
+                    </p>
+                    <p class="mb-2 text-light"><i class="bi bi-envelope-fill text-warning me-2"></i> ppystarnet@gmail.com
+                    </p>
+                    <p class="mb-0 text-light"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Jawahar Mainroad, opp. Bus stand, Puliampatti, Tamil Nadu 638459
+                    </p>
+                    <a href="https://wa.me/919677655550" target="_blank"
+                        class="btn btn-warning mt-4 rounded-pill fw-bold px-4">
+                        <i class="bi bi-whatsapp me-2"></i>Chat Now
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Footer -->
+            <hr class="border-light opacity-25 my-4">
+
+            <div class="text-center ">
+                <p class="mb-0 text-light opacity-75">
+                    © 2026 StarNet Broadband. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
+</body>
+
+</html>

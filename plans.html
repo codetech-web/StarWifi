@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | StarNet</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Favicon Configuration to show logo in browser tab -->
+    <link rel="icon" type="image/png" href="./star.png">
+    <style>
+        /* Base Reset & Font Family */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Custom Fixed Navbar with Deep Navy Theme */
+        .custom-navbar {
+            background-color: #fcfdfe !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            max-width: 100%;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+
+        .navbar-brand span {
+            font-size: 22px;
+            font-weight: 700;
+            color: #001f3f;
+            margin-left: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link {
+            color: black;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px !important;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+            background-color: black;
+        }
+
+        .nav-link.fw-bold {
+            color: #001f3f !important;
+            background-color: #ffd700;
+            margin-left: 10px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-link.fw-bold:hover {
+            background-color: #ffea00;
+            color: #001f3f !important;
+            transform: translateY(-1px);
+        }
+
+        /* ---------------------------------------------------------------- */
+        /* Custom UI Styles for the 2-Button Plan Segment Selector */
+        /* ---------------------------------------------------------------- */
+        .plan-toggle-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 6px;
+            border-radius: 50px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-toggle-custom {
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            width: 50%;
+        }
+
+        #plansbg {
+            background: linear-gradient(rgba(0, 31, 63, 0.75), rgba(0, 31, 63, 0.85)), url('./plansbg.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .highlight-yellow td {
+            background-color: #f5d90a !important;
+            /* Premium Soft Yellow */
+            color: #000000 !important;
+            /* Black text for high readability */
+        }
+
+        .table tbody tr {
+            transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease,
+                color 0.35s ease;
+            cursor: pointer;
+        }
+
+        .table tbody tr:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 8px 20px rgba(15, 16, 3, 0.15);
+            background: linear-gradient(to right, #6dc3fd, #5fb8f4);
+        }
+
+
+        .table tbody tr:hover td {
+            color: #0b63dc;
+        }
+
+        .table tbody tr:hover td {
+            background-color: rgb(172, 215, 254) !important;
+            color: #012e8e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container">
+
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="logo1.jpeg" alt="StarNet Logo" class="logo-img">
+                    <span>StarNet</span>
+                </a>
+
+                <button class="navbar-toggler bg-light border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                    <ul class="navbar-nav align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="plans.html">Plans</a></li>
+                        <li class="nav-item"><a class="nav-link" href="FQA.html">FAQ</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-center" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid" id="plansbg">
+        <div class="text-center" data-aos="zoom-in">
+            <h1 class="fw-bold text-white mb-2 display-4">StarNet Plans</h1>
+            <p class="text-white-50 fs-5 mb-0">Choose Your Perfect Broadband Plan <br>
+                Unlimited Speed • OTT Entertainment • Reliable Connectivity</p>
+        </div>
+    </div>
+    <div class="container-fluid" style="background: linear-gradient(to right, #0f172a, #2563eb);">
+        <div class="container py-5">
+
+            <div class="plan-toggle-container d-flex justify-content-center mb-5">
+                <button id="btnStarNet" class="btn btn-primary btn-toggle-custom" onclick="switchProvider('starnet')">
+                    <i class="bi bi-wifi me-2"></i>StarNet Plans
+                </button>
+                <button id="btnBSNL" class="btn btn-outline-primary btn-toggle-custom" onclick="switchProvider('bsnl')">
+                    <i class="bi bi-globe2 me-2"></i>BSNL Plans
+                </button>
+            </div>
+
+            <div id="starnetMasterBlock">
+
+                <div class="card card-body shadow-sm border-0 p-4 mb-4"
+                    style="background-color: #f0f7ff; border-radius: 16px;">
+                    <h5 class="fw-bold mb-4 d-flex align-items-center" style="color: #0b63dc;">
+                        <i class="bi bi-wifi me-2 fs-4"></i> StarNet Broadband Plans without OTT
+                    </h5>
+                    <div class="table-responsive rounded-3 border bg-white shadow-sm">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead style="background-color: #0b63dc; color: white;">
+                                <tr>
+                                    <th class="py-3 px-3">Speed</th>
+                                    <th class="py-3 px-3 text-center">Data</th>
+                                    <th class="py-3 px-3 text-center">Monthly Price</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-weight: 500;">
+                                <tr class="bg-success">
+                                    <td class="p-3 fw-bold">30 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center text-primary fw-bold">₹329</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold">50 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center text-primary fw-bold">₹399</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold">100 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center text-primary fw-bold">₹549</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold">200 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center text-primary fw-bold">₹850</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold">300 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center text-primary fw-bold">₹1100</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card card-body shadow-sm border-0 p-4 mb-4"
+                    style="background-color: #f0f7ff; border-radius: 16px;">
+                    <h5 class="fw-bold mb-4 d-flex align-items-center" style="color: #0b63dc;">
+                        <i class="bi bi-tv me-2 fs-4"></i> StarNet Entertainment Combo Plans with OTT
+                    </h5>
+                    <div class="table-responsive rounded-3 border bg-white shadow-sm">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead style="background-color: #0b63dc; color: white;">
+                                <tr>
+                                    <th class="py-3 px-3">Price</th>
+                                    <th class="py-3 px-3 text-center">Speed</th>
+                                    <th class="py-3 px-3 text-center">Data</th>
+                                    <th class="py-3 px-3 text-center">TV Channels</th>
+                                    <th class="py-3 px-3 text-center">OTT Apps</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-weight: 500;">
+                                <tr class="highlight-yellow">
+                                    <td class="p-3 fw-bold text-primary">₹449</td>
+                                    <td class="p-3 text-center">30 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center">800+</td>
+                                    <td class="p-3 text-center text-success">Included</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold text-primary">₹549</td>
+                                    <td class="p-3 text-center">30 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center">800+</td>
+                                    <td class="p-3 text-center text-success">Included</td>
+                                </tr>
+                                <tr class="highlight-yellow">
+                                    <td class="p-3 fw-bold text-primary">₹599</td>
+                                    <td class="p-3 text-center">100 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center">800+</td>
+                                    <td class="p-3 text-center text-success">Included</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold text-primary">₹649</td>
+                                    <td class="p-3 text-center">125 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center">800+</td>
+                                    <td class="p-3 text-center text-success">Included</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold text-primary">₹949</td>
+                                    <td class="p-3 text-center">200 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center">800+</td>
+                                    <td class="p-3 text-center text-success">Included</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 fw-bold text-primary">₹1180</td>
+                                    <td class="p-3 text-center">300 Mbps</td>
+                                    <td class="p-3 text-center">Unlimited</td>
+                                    <td class="p-3 text-center">800+</td>
+                                    <td class="p-3 text-center text-success">Included</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="container mt-4">
+
+                            <!-- Note Box -->
+                            <div class="d-flex align-items-center gap-3 mb-3">
+
+                                <!-- Yellow Box -->
+                                <div style=" height: 20px;width: 20px;background-color: #fed803;border-radius: 4px;">
+                                </div>
+
+                                <!-- Tagline -->
+                                <h5 class="mb-0 fw-semibold text-dark">
+                                    Choose any one entertainment package: Free IPTV or OTT
+                                </h5>
+
+                            </div>
+
+                            <!-- OTT Logos -->
+                            <div class="border-top p-3 d-flex gap-4 flex-wrap align-items-center">
+
+                                <!-- OTT Logos -->
+                                <img src="./primevideo.jfif" width="65" height="75" class="ott-logo"
+                                    style="border-radius:6px;">
+                                <img src="./sony.jfif" width="65" height="75" class="ott-logo"
+                                    style="border-radius:6px;">
+                                <img src="./zee5.jfif" width="65" height="75" class="ott-logo"
+                                    style="border-radius:6px;">
+                                <img src="./sunnext.jfif" width="65" height="75" class="ott-logo"
+                                    style="border-radius:6px;">
+                                <img src="./aha.jfif" width="65" height="75" class="ott-logo"
+                                    style="border-radius:6px;">
+                                <img src="./fancode.png" width="65" height="75" class="ott-logo"
+                                    style="border-radius:6px;">
+                                <img src="./discovery.jfif" width="65px" height="85px" class="ott-logo"
+                                    style="border-radius: 6px;" alt="">
+                                
+                                <img
+                                    src="./shemaroo.png " width="70px" height="85px" class="ott-logo"
+                                    style="border-radius: 6px;" alt="">
+
+                                <!-- OR Badge -->
+                                <span style="
+        background: linear-gradient(135deg,#fed803,#ffd700);
+        color:#000;
+        font-weight:700;
+        padding:8px 18px;
+        border-radius:50px;
+        box-shadow:0 3px 10px rgba(254,216,3,0.3);
+        font-size:14px;
+        letter-spacing:1px;">
+                                    OR
+                                </span>
+
+                                <!-- Live Channels -->
+                                <h3 class="mb-0 fw-bold">
+                                    📺 800+ Live Channels
+                                </h3>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="bsnlMasterBlock" class="d-none">
+
+            <div class="card card-body shadow-sm border-0 p-4 mb-4"
+                style="background-color: #f0f7ff; border-radius: 16px;">
+                <h5 class="fw-bold mb-4 d-flex align-items-center" style="color: #0b63dc;">
+                    <i class="bi bi-satellite-dish me-2 fs-4"></i> FTTH / Air Fibre Monthly Plans with OTT
+                </h5>
+                <div class="table-responsive rounded-3 border bg-white shadow-sm">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead style="background-color: #0b63dc; color: white;">
+                            <tr>
+                                <th class="py-3 px-3">Plan Name</th>
+                                <th class="py-3 px-3 text-center">Price (₹/30d)</th>
+                                <th class="py-3 px-3 text-center">Speed (Mbps)</th>
+                                <th class="py-3 px-3 text-center">FUP (GB)</th>
+                                <th class="py-3 px-3 text-center">Beyond FUP</th>
+                                <th class="py-3 px-3 text-center">Static IP</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-weight: 500;">
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Ruby OTT</td>
+                                <td class="p-3 text-center fw-bold">4799</td>
+                                <td class="p-3 text-center">1000</td>
+                                <td class="p-3 text-center">9500</td>
+                                <td class="p-3 text-center">45</td>
+                                <td class="p-3 text-center">NIL</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Silver Plus OTT</td>
+                                <td class="p-3 text-center fw-bold">2799</td>
+                                <td class="p-3 text-center">500</td>
+                                <td class="p-3 text-center">7500</td>
+                                <td class="p-3 text-center">35</td>
+                                <td class="p-3 text-center">NIL</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Ultra OTT</td>
+                                <td class="p-3 text-center fw-bold">1799</td>
+                                <td class="p-3 text-center">300</td>
+                                <td class="p-3 text-center">6500</td>
+                                <td class="p-3 text-center">20</td>
+                                <td class="p-3 text-center">1800</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Premium Plus OTT</td>
+                                <td class="p-3 text-center fw-bold">1499</td>
+                                <td class="p-3 text-center">250</td>
+                                <td class="p-3 text-center">6000</td>
+                                <td class="p-3 text-center">15</td>
+                                <td class="p-3 text-center">2000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Superstar Premium Plus OTT</td>
+                                <td class="p-3 text-center fw-bold">999</td>
+                                <td class="p-3 text-center">200</td>
+                                <td class="p-3 text-center">5000</td>
+                                <td class="p-3 text-center">10</td>
+                                <td class="p-3 text-center">2000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Value OTT</td>
+                                <td class="p-3 text-center fw-bold">799</td>
+                                <td class="p-3 text-center">125</td>
+                                <td class="p-3 text-center">4000</td>
+                                <td class="p-3 text-center">8</td>
+                                <td class="p-3 text-center">3000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Basic Plus OTT</td>
+                                <td class="p-3 text-center fw-bold">699</td>
+                                <td class="p-3 text-center">100</td>
+                                <td class="p-3 text-center">4000</td>
+                                <td class="p-3 text-center">4</td>
+                                <td class="p-3 text-center">3000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Basic OTT</td>
+                                <td class="p-3 text-center fw-bold">599</td>
+                                <td class="p-3 text-center">75</td>
+                                <td class="p-3 text-center">4000</td>
+                                <td class="p-3 text-center">4</td>
+                                <td class="p-3 text-center">3000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card card-body shadow-sm border-0 p-4 mb-4"
+                style="background-color: #f0f7ff; border-radius: 16px;">
+                <h5 class="fw-bold mb-4 d-flex align-items-center" style="color: #0b63dc;">
+                    <i class="bi bi-router me-2 fs-4"></i> FTTH Monthly Plans without OTT
+                </h5>
+                <div class="table-responsive rounded-3 border bg-white shadow-sm">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead style="background-color: #0b63dc; color: white;">
+                            <tr>
+                                <th class="py-3 px-3">Plan Name</th>
+                                <th class="py-3 px-3 text-center">Price (₹/30d)</th>
+                                <th class="py-3 px-3 text-center">Speed (Mbps)</th>
+                                <th class="py-3 px-3 text-center">FUP (GB)</th>
+                                <th class="py-3 px-3 text-center">Beyond FUP</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-weight: 500;">
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre/Air Fibre Premium Plus</td>
+                                <td class="p-3 text-center fw-bold">1299</td>
+                                <td class="p-3 text-center">250</td>
+                                <td class="p-3 text-center">6000</td>
+                                <td class="p-3 text-center">15</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre Value Plus</td>
+                                <td class="p-3 text-center fw-bold">849</td>
+                                <td class="p-3 text-center">150</td>
+                                <td class="p-3 text-center">5000</td>
+                                <td class="p-3 text-center">10</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre TB</td>
+                                <td class="p-3 text-center fw-bold">799</td>
+                                <td class="p-3 text-center">150</td>
+                                <td class="p-3 text-center">4000</td>
+                                <td class="p-3 text-center">10</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre Basic Plus</td>
+                                <td class="p-3 text-center fw-bold">599</td>
+                                <td class="p-3 text-center">100</td>
+                                <td class="p-3 text-center">4000</td>
+                                <td class="p-3 text-center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre Basic</td>
+                                <td class="p-3 text-center fw-bold">499</td>
+                                <td class="p-3 text-center">60</td>
+                                <td class="p-3 text-center">3300</td>
+                                <td class="p-3 text-center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fiber Basic Neo</td>
+                                <td class="p-3 text-center fw-bold">449</td>
+                                <td class="p-3 text-center">50</td>
+                                <td class="p-3 text-center">3300</td>
+                                <td class="p-3 text-center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Fibre Experience #</td>
+                                <td class="p-3 text-center fw-bold">399</td>
+                                <td class="p-3 text-center">30</td>
+                                <td class="p-3 text-center">1400</td>
+                                <td class="p-3 text-center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">Home WiFi (Rural customers)</td>
+                                <td class="p-3 text-center fw-bold">399</td>
+                                <td class="p-3 text-center">40</td>
+                                <td class="p-3 text-center">1400</td>
+                                <td class="p-3 text-center">4</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">FTTH Voice Unlimited</td>
+                                <td class="p-3 text-center fw-bold">299</td>
+                                <td class="p-3 text-center">25</td>
+                                <td class="p-3 text-center">20</td>
+                                <td class="p-3 text-center">2</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 fw-bold">FTTH Voice Unlimited Rural</td>
+                                <td class="p-3 text-center fw-bold">249</td>
+                                <td class="p-3 text-center">25</td>
+                                <td class="p-3 text-center">10</td>
+                                <td class="p-3 text-center">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <footer class="py-5 text-white" style="background-color:black;">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Company Profile -->
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="fw-bold mb-3 text-warning">StarNet</h3>
+                    <p class="text-light opacity-75 small" style="line-height:1.7;">
+                        Experience ultra-fast fiber broadband with reliable connectivity, seamless streaming, and
+                        affordable plans designed for every home and business.
+                    </p>
+
+                </div>
+                <!-- Nav Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html"
+                                class="text-decoration-none text-light opacity-75 small">Home</a></li>
+                        <li class="mb-2"><a href="about.html"
+                                class="text-decoration-none text-light opacity-75 small">About</a></li>
+                        <li class="mb-2"><a href="plans.html"
+                                class="text-decoration-none text-light opacity-75 small">Plans</a></li>
+                        <li class="mb-2"><a href="FQA.html"
+                                class="text-decoration-none text-light opacity-75 small">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Services Offered -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">Follow Us</h5>
+
+                    <a href="https://www.facebook.com/share/1HsUiEZvhR/" target="_blank"
+                        class="d-flex align-items-center text-decoration-none text-light mb-3">
+                        <i class="bi bi-facebook fs-4 text-primary me-3"></i>
+                        <span>Facebook</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/starnetppy?utm_source=qr&igsh=MTNrdTJqOXBqemQxNQ=="
+                        target="_blank" class="d-flex align-items-center text-decoration-none text-light">
+                        <i class="bi bi-instagram fs-4 text-danger me-3"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://wa.me/919677655550"
+                        class="d-flex align-items-center text-decoration-none text-light">
+                        <i class="bi bi-whatsapp fs-4 text-success me-3"></i>
+                        <span>WhatsApp</span></a>
+                </div>
+                <!-- Contact Office Address -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3 text-warning">Contact Us</h5>
+                    <p class="mb-2 text-light"><i class="bi bi-telephone-fill text-warning me-2"></i> +91 96776-55550,
+                        95666-12343, 98427 31622
+                    </p>
+                    <p class="mb-2 text-light"><i class="bi bi-envelope-fill text-warning me-2"></i>
+                        ppystarnet@gmail.com
+                    </p>
+                    <p class="mb-0 text-light"><i class="bi bi-geo-alt-fill text-warning me-2"></i> Jawahar Mainroad, opp. Bus stand, Puliampatti, Tamil Nadu 638459
+                    </p>
+                    <a href="https://wa.me/919677655550" target="_blank"
+                        class="btn btn-warning mt-4 rounded-pill fw-bold px-4">
+                        <i class="bi bi-whatsapp me-2"></i>Chat Now
+                    </a>
+                </div>
+            </div>
+            <hr class="border-light opacity-25 my-4">
+            <div class="text-center">
+                <p class="mb-0 text-light opacity-50 small">
+                    © 2026 StarNet Broadband. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: false, mirror: true });
+
+        // Corrected JavaScript Toggle Function
+        function switchProvider(provider) {
+            const starNetBlock = document.getElementById("starnetMasterBlock");
+            const bsnlBlock = document.getElementById("bsnlMasterBlock");
+
+            const btnStarNet = document.getElementById("btnStarNet");
+            const btnBSNL = document.getElementById("btnBSNL");
+
+            if (provider === "starnet") {
+                // Show StarNet, Hide BSNL
+                starNetBlock.classList.remove("d-none");
+                bsnlBlock.classList.add("d-none");
+
+                // Button active state management
+                btnStarNet.classList.remove("btn-outline-primary");
+                btnStarNet.classList.add("btn-primary");
+
+                btnBSNL.classList.remove("btn-primary");
+                btnBSNL.classList.add("btn-outline-primary");
+            } else {
+                // Show BSNL, Hide StarNet
+                bsnlBlock.classList.remove("d-none");
+                starNetBlock.classList.add("d-none");
+
+                // Button active state management
+                btnBSNL.classList.remove("btn-outline-primary");
+                btnBSNL.classList.add("btn-primary");
+
+                btnStarNet.classList.remove("btn-primary");
+                btnStarNet.classList.add("btn-outline-primary");
+            }
+        }
+    </script>
+</body>
+
+</html>
